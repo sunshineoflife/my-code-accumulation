@@ -18,3 +18,21 @@ static char* normalizePath(char* aPath)
    return aPath;
 }
 ```
+
+
+
+
+
+
+
+```c++
+ #ifdef _WIN32
+static void sanitize_path(std::string &path)
+{
+   size_t size = path.size();
+   for (size_t i = 0; i < size; i++)
+      if (path[i] == '/')
+         path[i] = '\\';
+}
+#endif
+```
